@@ -11,7 +11,7 @@ class CarFactory(object):
     @staticmethod
     def create_calliope(current_date, last_service_date, current_mileage, last_service_mileage):
         engine = CapuletEngine(current_mileage, last_service_mileage)
-        battery = Spindler(last_service_date)
+        battery = Spindler(current_date,last_service_date)
         car = Car(engine, battery)
         return car
 
@@ -23,8 +23,8 @@ class CarFactory(object):
         return car
 
     @staticmethod
-    def create_palindrome(current_date, last_service_date, current_mileage, last_service_mileage):
-        engine = SternmanEngine(current_mileage, last_service_mileage)
+    def create_palindrome(current_date, last_service_date, warning_light_is_on):
+        engine = SternmanEngine(warning_light_is_on)
         battery = Spindler(current_date, last_service_date)
         car = Car(engine, battery)
         return car
